@@ -27,9 +27,34 @@ saveButtonEl.on('click', function () {
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
   
-  let pastTime = {
+//  Change text area based on the time
+let checkTime = function(){
 
+  // current time
+  let currentTime = moment().format('H');
+
+  var timeBlockEle = $('"col-8 col-md-10 description"');
+  for (var i = 0; i < timeBlockEle.length; i++){
+    var elementID = timeBlockEle[i].id;
+    var manipID = document.getElementById(timeBlockEle[i].id)
+
+    // remove old class
+    $(timeBlockEle[i].id).removeClass(".present .past .future");
+
+    // New
+    if (elementID < currentTime) {
+      $(manipID).addClass("Past");
+    }
+    else if (elementID > currentTime) {
+      $(manipID).addClass("future");
+    }
+    else {
+      $(manipID).addClass("Present");
+    }
   }
+}
+//  Check time
+setInterval(checkTime(), 1000 * 60 * 5);
 
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
@@ -40,7 +65,6 @@ saveButtonEl.on('click', function () {
   
   // TODO: Add code to display the current date in the header of the page.
       //dates in console
+      
   var today = dayjs();
 $('#currentDay').text(today.format('dddd, MMMM D YYYY, h:mm:ss a'));
-
-
