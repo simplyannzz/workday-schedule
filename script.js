@@ -29,33 +29,33 @@ var textEl = $(".col-8 col-md-10 description");
   // current hour in 24-hour time?
   
 //  Change text area based on the time
-// let checkTime = function(){
+let checkTime = function(){
 
-//   // current time
-//   let currentTime = moment().format('H');
+  // current time
+  let currentTime = moment().format('h');
 
-//   var timeBlockEle = $('"col-8 col-md-10 description"');
-//   for (var i = 0; i < timeBlockEle.length; i++){
-//     var elementID = timeBlockEle[i].id;
-//     var manipID = document.getElementById(timeBlockEle[i].id)
+  var timeBlockEle = $("col-8 col-md-10 description");
+  for (var i = 0; i < timeBlockEle.length; i++){
+    var elementID = timeBlockEle[i].id;
+    var manipID = document.getElementById(timeBlockEle[i].id)
 
-//     // remove old class
-//     $(timeBlockEle[i].id).removeClass(".present .past .future");
+    // remove old class
+    $(timeBlockEle[i].id).removeClass(".present .past .future");
 
-//     // New
-//     if (elementID < currentTime) {
-//       $(manipID).addClass("Past");
-//     }
-//     else if (elementID > currentTime) {
-//       $(manipID).addClass("future");
-//     }
-//     else {
-//       $(manipID).addClass("present");
-//     }
-//   }
-//   //  Check time
-// setInterval(checkTime(), (1000 * 60) * 5);
-// }
+    // New
+    if (elementID < currentTime) {
+      $(manipID).addClass("Past");
+    }
+    else if (elementID > currentTime) {
+      $(manipID).addClass("future");
+    }
+    else {
+      $(manipID).addClass("present");
+    }
+  }
+  //  Check time
+setInterval(checkTime(), (1000 * 60) * 5);
+}
 
 //   // TODO: Add code to get any user input that was saved in localStorage and set
 //   // the values of the corresponding textarea elements. HINT: How can the id
@@ -63,8 +63,8 @@ var textEl = $(".col-8 col-md-10 description");
  
 
 //   // CAN'T FIGURE IT OUT LOL
-//   var saveText = JSON.parse(localStorage.getItem ("textEl"));
-//   timeBlockEle.textContent = text;
+  var saveText = localStorage.getItem ("textEl");
+  timeBlockEle.textContent = text;
 
   
   // TODO: Add code to display the current date in the header of the page.
