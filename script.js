@@ -1,12 +1,12 @@
 var saveButtonEl = $(".saveBtn");
 var todayEl = $("#currentDay");
-//var textEl = $(".description");
-//dates (IT WORKS WITHOUT THE CODE ABOVE LOL)
+
+//dates
 $(document).ready(function () {
   var today = dayjs();
   $('#currentDay').text(today.format('dddd, MMMM D YYYY, h:mm:ss a'));
 
-  // I THINK I DID IT RIGHT LOL BUT DOESNT SHOW ALERT/ OR LOG CONSOLE
+  // Save button
   saveButtonEl.on('click', function (event) {
     event.preventDefault();
     var descriptionValue = $(this).siblings(".description").val()
